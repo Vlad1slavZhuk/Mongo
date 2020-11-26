@@ -1,0 +1,39 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+
+type Account {
+    username: String!
+    password: String!
+    token: String
+}
+
+type Ad {
+    id: ID!
+    brand: String!
+    model: String!
+    color: String!
+    price: Int!
+}
+
+input AdRequest {
+    brand: String!
+    model: String!
+    color: String!
+    price: Int!
+}
+
+# Query
+type Query {
+    getall: [Ad!]! #Get all ads
+    get(id: ID!): Ad!  #Get Ad
+}
+
+# Mutation
+type Mutation {
+    createAd(ad: AdRequest): String!
+    updateAd(ad: AdRequest, id: ID!): String!
+    deleteAd(id: ID!): String! 
+}

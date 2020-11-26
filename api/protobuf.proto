@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package serviceProtobuf;
+import "google/protobuf/empty.proto";
+
+option go_package = "./protoc;api";
+
+service ServiceProtobuf {
+  rpc Get(RequestID) returns (ResponseGetAds);
+  rpc GetAll(google.protobuf.Empty) returns (ResponseGetAds);
+  rpc Update(RequestUpdateAd) returns (ResponseStatus);
+  rpc Add(RequestAdd) returns (ResponseStatus);
+  rpc Delete(RequestID) returns (ResponseStatus);
+  rpc Size(google.protobuf.Empty) returns (ResponseSize);
+  rpc AddAccount(Account) returns (ResponseStatus);
+  rpc GetAccounts(google.protobuf.Empty) returns (ResponseAccounts);
+  rpc UpdateTokenCurrentAcc(RequestUpdateAcc) returns (ResponseStatus);
+}
+
+message Account {
+  string username = 1;
+  string password = 2;
+  string token = 3;
+}
+
+message Ad {
+  uint32 id = 1;
+  string model = 2;
+  string brand = 3;
+  string color = 4;
+  int32 price = 5;
+}
+
+//Request
+//Add in grpc... todo
+message RequestUpdateAcc {
+  Account acc = 1;
+  string token = 2;
+}
+message RequestID{
+  uint32 id = 1;
+}
+
+message RequestUpdateAd {
+  uint32 id = 1;
+  Ad ad = 2;
+}
+
+message RequestAdd {
+  Ad ad = 1;
+}
+//Response
+message ResponseGetAds {
+  repeated Ad ads = 1;
+}
+
+message ResponseStatus {
+  string status = 1;
+}
+
+message ResponseSize {
+  uint32 size = 1;
+}
+message ResponseAccounts{
+  repeated Account acc = 1;
+}

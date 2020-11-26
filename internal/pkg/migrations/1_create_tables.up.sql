@@ -1,0 +1,18 @@
+BEGIN;
+
+CREATE TABLE accounts (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    token VARCHAR(250) 
+);
+
+CREATE TABLE ads (
+    id SERIAL PRIMARY KEY,
+    brand VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    price INTEGER DEFAULT 0 NOT NULL
+);
+
+COMMIT;
