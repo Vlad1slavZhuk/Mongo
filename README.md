@@ -8,12 +8,12 @@ The folowing technologies have been introduced in this project:
 
 Database on `gRPC`:  
 **NoSQL:**  
-- [x] `Redis`;  
-- [x] `Mongo`;  
-- [ ] `Elasticsearch`.  
+:heavy_check_mark: `Redis`;  
+:heavy_check_mark: `Mongo`;  
+:x: `Elasticsearch`.  
 
 **SQL:**  
-- [x] `Postgres`.
+:heavy_check_mark: `Postgres`.
 
 ## Structure 
 ```
